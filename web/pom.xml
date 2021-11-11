@@ -450,11 +450,12 @@
 				<configuration>
 					<webResources>
 						<resource>
-							<directory>target/</directory>
+							<directory>../docs/manuals/</directory>
 							<includes>
 								<include>*-manual.pdf</include>
 							</includes>
 							<targetPath>manuals</targetPath>
+							<filtering>false</filtering>
 						</resource>
 					</webResources>
 				</configuration>
