@@ -11,28 +11,6 @@
 		<version>1.2.0-SNAPSHOT</version>
 	</parent>
 
-	<profiles>
-		<!-- Maven profiles for building artifact for a specific target database [postgres (default), oracle]. 
-		This is to avoid the inclusion of unnecessary JDBC drivers. -->
-		<profile>
-			<id>postgres</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<postgres.scope>runtime</postgres.scope>
-				<oracle.scope>provided</oracle.scope>
-			</properties>
-		</profile>
-		<profile>
-			<id>oracle</id>
-			<properties>
-				<postgres.scope>provided</postgres.scope>
-				<oracle.scope>runtime</oracle.scope>
-			</properties>
-		</profile>
-	</profiles>
-
 	<repositories>
 		<repository>
 			<id>jitpack.io</id>
@@ -104,8 +82,8 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-dbcp2</artifactId>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-validator</groupId>
@@ -232,14 +210,13 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.2.5</version>
-			<scope>${postgres.scope}</scope>
 		</dependency>
         <!-- Oracle JDBC driver -->
 		<dependency>
-			<groupId>oracle.ojdbc14</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10g</version>
-			<scope>${oracle.scope}</scope>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ojdbc10_g</artifactId>
+			<version>19.3.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.castor</groupId>
@@ -310,7 +287,7 @@
 			<artifactId>guava</artifactId>
 			<version>30.0-jre</version>
 		</dependency>
-		 <dependency>
+		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest</artifactId>
 			<version>2.2</version>
