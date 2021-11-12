@@ -1,4 +1,4 @@
-LibreClinica 1.0 for Monitors
+LibreClinica 1.2 for Monitors
 =============================
 
 [https://libreclinica.org](https://libreclinica.org) © 2020
